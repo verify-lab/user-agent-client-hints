@@ -99,7 +99,7 @@ func IsMobile(headers http.Header) bool {
 // GetModel provides the device model on which the browser is running.
 // For example "Pixel 3".
 func GetModel(headers http.Header) string {
-	return strutil.StripNonPrintable(headers.Get(SecCHUAModel))
+	return strings.Trim(strutil.StripNonPrintable(headers.Get(SecCHUAModel)), `"`)
 }
 
 // GetPlatform provides the platform or operating system on which the user agent is running.
